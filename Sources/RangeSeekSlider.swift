@@ -157,7 +157,8 @@ import UIKit
     @IBInspectable open var step: CGFloat = 0.0
     
     /// Custom slider steps for slider
-    var sliderSteps: [CGFloat] = [0, 1750, 2500, 3500, 5000, 7500, 10000]
+    /// Assign array of steps to this property
+    public var sliderSteps: [CGFloat] = []
     
     /// Handle slider with custom image, you can set custom image for your handle
     @IBInspectable open var handleImage: UIImage? {
