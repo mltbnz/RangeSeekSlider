@@ -630,7 +630,9 @@ import UIKit
         if enableStep && step > 0.0 {
             
             if handleTracking == .left {
-                selectedMinValue = sliderSteps.min(by: { abs($0 - selectedMinValue) < abs($1 - selectedMinValue) })!
+                if !sliderSteps.isEmpty {
+                    selectedMinValue = sliderSteps.min(by: { abs($0 - selectedMinValue) < abs($1 - selectedMinValue) })!
+                }
             }
             if let previousStepMinValue = previousStepMinValue, previousStepMinValue != selectedMinValue {
                 TapticEngine.selection.feedback()
@@ -638,7 +640,9 @@ import UIKit
             previousStepMinValue = selectedMinValue
             
             if handleTracking == .right {
-                selectedMaxValue = sliderSteps.min(by: { abs($0 - selectedMaxValue) < abs($1 - selectedMaxValue) })!
+                if !sliderSteps.isEmpty {
+                    selectedMaxValue = sliderSteps.min(by: { abs($0 - selectedMaxValue) < abs($1 - selectedMaxValue) })!
+                }
             }
             if let previousStepMaxValue = previousStepMaxValue, previousStepMaxValue != selectedMaxValue {
                 TapticEngine.selection.feedback()
